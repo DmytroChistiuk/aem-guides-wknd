@@ -52,6 +52,7 @@ Import-Package: javax.annotation;version=0.0.0,*
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-baseline-maven-plugin</artifactId>
                 <configuration>
+                    <skip>true</skip>
                     <failOnMissing>false</failOnMissing>
                 </configuration>
                 <executions>

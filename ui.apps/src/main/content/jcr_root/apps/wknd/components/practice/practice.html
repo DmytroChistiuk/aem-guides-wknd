@@ -1,0 +1,30 @@
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"/>
+<sly data-sly-call="${clientLib.all @ categories='codingtask.components.practice'}"/>
+<sly data-sly-test.isAuthor="${wcmmode.edit || wcmmode.preview}"/>
+
+<sly  data-sly-use.practiceModel="com.adobe.aem.guides.wknd.core.models.AemPracticeModel">
+
+    <p>Dialog Title - ${practiceModel.title}</p>
+
+    <sly data-sly-test="${!isAuthor && practiceModel.backgroundImage}">
+        <img src="${practiceModel.imagePath}" alt="Background Picture">
+    </sly>
+
+    <div class="navigationItems">
+        <sly data-sly-list.item= "${practiceModel.navigationItems}">
+            <div class="navigationItem">
+                <sly data-sly-test="${itemList.first}"><b>Title - ${item.title}</b></sly>
+                <sly data-sly-test="${itemList.middle}">Title - ${item.title}</sly>
+                <sly data-sly-test="${itemList.last}"><i>Title - ${item.title}</i></sly>
+            </div>
+        </sly>
+    </div>
+
+    <sly data-sly-test="${isAuthor}">
+        <p>Author mode</p>
+    </sly>
+
+    <p>Page Title: ${pageProperties.jcr:title}</p>
+    <p>Page Path: ${pageProperties.jcr:path}</p>
+
+</sly>
